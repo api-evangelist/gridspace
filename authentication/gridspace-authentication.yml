@@ -1,0 +1,35 @@
+generated: '2026-07-19'
+method: searched
+source: https://goguava.ai/docs/api-overview
+docs: https://goguava.ai/docs/sdk-installation
+summary:
+  types: [http]
+  http_schemes: [bearer]
+  api_key_in: [header]
+  oauth2_flows: []
+  notes: >-
+    The Guava REST API and SDKs authenticate with a bearer API key. The CLI uses
+    a separate browser-based OAuth login (guava login) that stores credentials
+    locally; the TypeScript and Python SDKs can reuse those CLI credentials.
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  in: header
+  header: Authorization
+  format: 'Bearer [example key]'
+  key_prefix: 'gva-'
+  env_var: GUAVA_API_KEY
+  provisioning: https://app.goguava.ai/dashboard/api-keys
+  applies_to: REST API, Python SDK, TypeScript SDK
+  sources: [openapi/gridspace-guava-openapi.yml]
+- name: cliOAuth
+  type: oauth2
+  flow: browser-login
+  command: guava login
+  headless_flag: --no-launch-browser
+  description: >-
+    Browser-based OAuth used by the guava CLI to authenticate the developer;
+    credentials are stored locally and can be reused by the SDKs. No public
+    OAuth scope catalog is documented.
+  sources: [https://goguava.ai/docs/cli-reference]
