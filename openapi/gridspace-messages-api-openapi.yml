@@ -1,0 +1,157 @@
+openapi: 3.1.0
+info:
+  title: Guava Voice Agent REST Conversations Messages API
+  description: The Guava (formerly Gridspace) REST API lets you manage calls, conversations, SMS messages, and account resources directly over HTTP — no SDK required. Guava is a voice AI platform for regulated industries (healthcare, banking, insurance, BPOs, government). This specification was reconstructed faithfully from Guava's published REST API reference at https://goguava.ai/docs/api-overview; every path, parameter, and response field is documented by the provider.
+  version: v1
+  contact:
+    name: Guava Support
+    email: hi@goguava.ai
+    url: https://goguava.ai/docs/api-overview
+  x-logo:
+    url: https://goguava.ai
+servers:
+- url: https://api.goguava.ai/v1
+  description: Production
+security:
+- bearerAuth: []
+tags:
+- name: Messages
+  description: Send SMS messages and read inbound messages received on your Guava numbers.
+paths:
+  /send-sms:
+    post:
+      operationId: sendSms
+      summary: Send an SMS
+      description: Send a single SMS from one of your Guava numbers.
+      tags:
+      - Messages
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - from_number
+              - to_number
+              - message
+              properties:
+                from_number:
+                  type: string
+                  description: One of your Guava numbers (E.164). Must have SMS enabled.
+                to_number:
+                  type: string
+                  description: The recipient's number (E.164).
+                message:
+                  type: string
+                  description: The message body to send.
+      responses:
+        '201':
+          description: Message accepted for delivery.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: sent
+        '400':
+          description: The from_number isn't owned by your organization, or doesn't have SMS configured.
+        '401':
+          description: Invalid authentication.
+        '500':
+          description: The upstream carrier failed to accept the message.
+  /messages:
+    get:
+      operationId: listMessages
+      summary: List inbound messages
+      description: List the inbound messages received on one of your Guava numbers, oldest first.
+      tags:
+      - Messages
+      parameters:
+      - name: to_number
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The Guava number whose inbox you want to read (E.164). Must be owned by your organization.
+      - name: start
+        in: query
+        required: false
+        schema:
+          type: string
+          format: date-time
+        description: Only return messages received at or after this time (ISO 8601, inclusive).
+      - name: from_number
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Only return messages sent from this number (E.164).
+      - name: modality
+        in: query
+        required: false
+        schema:
+          type: string
+          enum:
+          - sms
+        description: Only return messages on this channel.
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          minimum: 1
+          maximum: 100
+          default: 50
+        description: Maximum number of messages to return.
+      responses:
+        '200':
+          description: A page of inbound messages.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  messages:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Message'
+                  has_more:
+                    type: boolean
+        '400':
+          description: Invalid start timestamp or limit value.
+        '401':
+          description: Invalid authentication.
+        '404':
+          description: The to_number isn't owned by your organization.
+components:
+  schemas:
+    Message:
+      type: object
+      properties:
+        id:
+          type: string
+        from_number:
+          type: string
+        to_number:
+          type: string
+        content:
+          type: string
+        received_at:
+          type: string
+          format: date-time
+        modality:
+          type: string
+          enum:
+          - sms
+        direction:
+          type: string
+          enum:
+          - inbound
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'Include your API key as a bearer token: Authorization: Bearer YOUR_GUAVA_API_KEY. API keys are created on the app.goguava.ai dashboard and are prefixed "gva-".'
