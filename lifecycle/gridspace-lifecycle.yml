@@ -1,0 +1,25 @@
+generated: '2026-07-19'
+method: searched
+source: https://goguava.ai/docs/api-overview
+versioning:
+  scheme: uri-path
+  current: v1
+  docs: https://goguava.ai/docs/api-overview
+deprecation:
+  policy: >-
+    Guava publishes an SDK deprecation-status endpoint (POST /v1/check-sdk-deprecation)
+    that reports whether a given python-sdk / typescript-sdk version is "supported" or
+    "deprecated". SDK clients can auto-check on startup (skippable via skipDeprecationCheck /
+    the TypeScript client constructor). No dated sunset policy for REST endpoints is published.
+  sdk_deprecation_endpoint: openapi/gridspace-guava-openapi.yml#checkSdkDeprecation
+  sunset_header: false
+status_page: https://status.goguava.ai
+status_page_provider: Better Stack
+status_components: [Dashboard, API]
+sla:
+  documented: partial
+  notes: >-
+    A "light SLA" is offered on the Pro plan and custom SLAs on Enterprise (see pricing);
+    no numeric uptime target is published publicly.
+release_notes: https://goguava.ai/docs/release-notes
+deprecated_operations: []

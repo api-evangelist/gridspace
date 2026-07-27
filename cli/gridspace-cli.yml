@@ -1,0 +1,74 @@
+generated: '2026-07-19'
+method: searched
+source: https://goguava.ai/docs/cli-reference
+name: guava
+description: >-
+  The primary interface for working with Guava — authentication, project
+  scaffolding, local runs, cloud deployment, phone-number provisioning,
+  conversation history, org management, outbound campaigns, and WebRTC widget codes.
+install:
+- method: homebrew
+  command: brew install goguava-ai/tap/guava
+- method: shell
+  command: curl -fsSL https://goguava.ai/install.sh | sh
+  note: Installs to ~/.local/bin/guava (macOS/Linux/WSL)
+- method: powershell
+  command: irm https://goguava.ai/install.ps1 | iex
+- method: self-upgrade
+  command: guava self-upgrade
+auth:
+  command: guava login
+  mechanism: browser-based OAuth
+  headless_flag: --no-launch-browser
+command_groups:
+- group: auth
+  commands:
+  - { name: 'guava login', desc: 'Authenticate via browser OAuth' }
+  - { name: 'guava logout', desc: 'Clear stored credentials' }
+- group: project
+  commands:
+  - { name: 'guava create [name]', desc: 'Scaffold a new project (interactive or --no-prompt)' }
+  - { name: 'guava run [target] [-- args]', desc: 'Run the agent locally with uv' }
+  - { name: 'guava update', desc: 'Edit guava.toml (name, base image, tier)' }
+  - { name: 'guava self-upgrade', desc: 'Upgrade the guava CLI in place' }
+- group: deploy
+  commands:
+  - { name: 'guava deploy up [dir] [--rebuild]', desc: 'Build and deploy to Guava cloud' }
+  - { name: 'guava deploy down [target] [--id]', desc: 'Stop a deployment' }
+  - { name: 'guava deploy scale <replicas>', desc: 'Scale running replicas' }
+  - { name: 'guava deploy status [target]', desc: 'Check deployment state' }
+  - { name: 'guava deploy logs [target] [-n N]', desc: 'Runtime logs (default 200, max 1000)' }
+  - { name: 'guava deploy build-logs [target]', desc: 'Get build log URL' }
+  - { name: 'guava deploy list (ls)', desc: 'List all deployments' }
+  - { name: 'guava deploy changed [dir]', desc: 'Check whether code changed since last deploy' }
+- group: numbers
+  commands:
+  - { name: 'guava numbers list (ls)', desc: 'List owned phone numbers' }
+  - { name: 'guava numbers buy [dir]', desc: 'Provision a phone number for the project' }
+- group: conversations
+  commands:
+  - { name: 'guava conversations list [filters]', desc: 'List calls (paginated via --after)' }
+  - { name: 'guava conversations get <call_id>', desc: 'Show conversation details' }
+  - { name: 'guava conversations transcript <call_id>', desc: 'Show transcript' }
+  - { name: 'guava conversations recording <call_id> [-o]', desc: 'Download WAV recording' }
+- group: org
+  commands:
+  - { name: 'guava org / guava org list', desc: 'List organizations you belong to' }
+  - { name: 'guava org use [org_id]', desc: 'Switch active org' }
+- group: campaigns
+  commands:
+  - { name: 'guava campaigns list (ls)', desc: 'List outbound campaigns' }
+  - { name: 'guava campaigns show <code>', desc: 'Campaign details and status counts' }
+  - { name: 'guava campaigns pause/resume/delete <code>', desc: 'Lifecycle controls' }
+  - { name: 'guava campaigns add-contacts <code> <file>', desc: 'Upload contacts (.csv/.json/.jsonl)' }
+- group: widget
+  commands:
+  - { name: 'guava widget [--ttl SEC]', desc: 'Mint a WebRTC widget code' }
+config_file:
+  name: guava.toml
+  fields: [project_id, name, base_image, tier, replicas, phone_number, call_direction, org_id]
+  note: Commit to git; do not edit manually (use guava update). Legacy JSON .guava files auto-migrate.
+instance_tiers:
+- { tier: guava-seed, cpu: 1, memory: 1Gi, use: Development / testing }
+- { tier: guava-fruit, cpu: 2, memory: 2Gi, use: Standard production }
+- { tier: guava-tree, cpu: 4, memory: 4Gi, use: High-performance workloads }

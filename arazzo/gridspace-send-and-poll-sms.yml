@@ -1,0 +1,63 @@
+arazzo: 1.0.1
+info:
+  title: Send an SMS and poll for the reply
+  version: 1.0.0
+  summary: Send an SMS from a Guava number, then poll the inbox for the recipient's reply.
+sourceDescriptions:
+- name: guava
+  url: ../openapi/gridspace-guava-openapi.yml
+  type: openapi
+workflows:
+- workflowId: send-and-poll-sms
+  summary: Send an SMS and read inbound replies on the sending number.
+  description: >-
+    Sends an SMS from one of your Guava numbers, then lists inbound messages on that
+    number starting at the send time to detect the reply. Dedupe by message id.
+  inputs:
+    type: object
+    properties:
+      from_number:
+        type: string
+        description: Your SMS-enabled Guava number (E.164).
+      to_number:
+        type: string
+        description: Recipient number (E.164).
+      message:
+        type: string
+        description: Message body.
+      start:
+        type: string
+        description: ISO 8601 time to start polling the inbox from.
+  steps:
+  - stepId: send
+    operationId: sendSms
+    requestBody:
+      contentType: application/json
+      payload:
+        from_number: $inputs.from_number
+        to_number: $inputs.to_number
+        message: $inputs.message
+    successCriteria:
+    - condition: $statusCode == 201
+    outputs:
+      status: $response.body.status
+  - stepId: poll
+    operationId: listMessages
+    parameters:
+    - name: to_number
+      in: query
+      value: $inputs.from_number
+    - name: from_number
+      in: query
+      value: $inputs.to_number
+    - name: start
+      in: query
+      value: $inputs.start
+    successCriteria:
+    - condition: $statusCode == 200
+    outputs:
+      messages: $response.body.messages
+      has_more: $response.body.has_more
+  outputs:
+    send_status: $steps.send.outputs.status
+    replies: $steps.poll.outputs.messages

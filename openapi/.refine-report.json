@@ -1,0 +1,18 @@
+{
+  "provider": "gridspace",
+  "sources": [
+    "gridspace-conversations-api-openapi.yml",
+    "gridspace-messages-api-openapi.yml",
+    "gridspace-sdk-api-openapi.yml"
+  ],
+  "outputs": [
+    "gridspace-conversations-api-openapi.yml",
+    "gridspace-messages-api-openapi.yml",
+    "gridspace-sdk-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

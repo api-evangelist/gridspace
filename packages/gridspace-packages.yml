@@ -1,0 +1,40 @@
+generated: '2026-07-19'
+method: searched
+source: https://goguava.ai/docs/sdk-installation
+packages:
+- language: python
+  registry: pypi
+  name: guava-sdk
+  url: https://pypi.org/project/guava-sdk/
+  install: pip install guava-sdk
+  version: 0.34.0
+  official: true
+  repo: https://github.com/goguava-ai/python-sdk
+  extras: ['guava-sdk[genai]', 'guava-sdk[openai]']
+  summary: The official Python SDK for building Guava voice agents.
+- language: typescript
+  registry: npm
+  name: '@guava-ai/guava-sdk'
+  url: https://www.npmjs.com/package/@guava-ai/guava-sdk
+  install: npm install @guava-ai/guava-sdk
+  version: 0.23.0
+  official: true
+  repo: https://github.com/goguava-ai/typescript-sdk
+  docs: https://docs.goguava.ai/typescript-sdk/
+  summary: The official TypeScript SDK for building Guava voice agents.
+- language: elixir
+  registry: github
+  name: elixir-sdk
+  url: https://github.com/goguava-ai/elixir-sdk
+  official: true
+  summary: The Elixir SDK for building Guava voice agents (source on GitHub; not published to Hex at time of capture).
+- language: cli
+  registry: homebrew
+  name: guava
+  url: https://github.com/goguava-ai/homebrew-tap
+  install: brew install goguava-ai/tap/guava
+  alt_install:
+  - curl -fsSL https://goguava.ai/install.sh | sh
+  - irm https://goguava.ai/install.ps1 | iex
+  official: true
+  summary: The guava CLI — project scaffolding, local runs, cloud deploy, numbers, conversations, campaigns.

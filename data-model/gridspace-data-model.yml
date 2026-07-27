@@ -1,0 +1,57 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/gridspace-guava-openapi.yml
+entities:
+- name: Conversation
+  description: A completed or in-progress call.
+  id_field: call_id
+  id_format: opaque hex (e.g. 6064ab9663dc4eb0)
+  fields: [id, call_id, ts, direction, from_number, to_number, duration_sec, campaign_id, termination_reason]
+- name: TranscriptTurn
+  description: One speaker turn within a conversation transcript.
+  fields: [speaker, text, offset_ms]
+- name: Recording
+  description: WAV audio recording of a conversation.
+  fields: [call_id, audio]
+- name: Message
+  description: An inbound or outbound SMS on a Guava number.
+  id_field: id
+  fields: [id, from_number, to_number, content, received_at, modality, direction]
+- name: Campaign
+  description: An outbound calling campaign.
+  id_field: campaign_id
+  id_format: gcmp- prefixed
+  fields: [campaign_id, code, status, contacts]
+  note: Managed via dashboard and CLI (guava campaigns); not exposed as REST CRUD in the public reference.
+- name: PhoneNumber
+  description: A Guava-provisioned E.164 number owned by an org.
+  fields: [number, sms_enabled]
+- name: Organization
+  description: The account tenant that owns numbers, deployments, conversations, and campaigns.
+  id_field: org_id
+relationships:
+- from: Conversation
+  to: TranscriptTurn
+  type: has_many
+  via: call_id
+- from: Conversation
+  to: Recording
+  type: has_one
+  via: call_id
+- from: Conversation
+  to: Campaign
+  type: belongs_to
+  via: campaign_id
+  note: Nullable — only for calls initiated by an outbound campaign.
+- from: Message
+  to: PhoneNumber
+  type: belongs_to
+  via: to_number
+- from: Campaign
+  to: Organization
+  type: belongs_to
+  via: org_id
+- from: PhoneNumber
+  to: Organization
+  type: belongs_to
+  via: org_id

@@ -1,7 +1,16 @@
 aid: gridspace
 name: Gridspace
-description: Gridspace is a company surfaced as a portfolio company of bloomberg-beta and added to the
-  API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Gridspace is a voice AI company (founded 2013) that now operates as Guava
+  (goguava.ai) — a voice agent platform built for regulated industries such as
+  healthcare, banking, insurance, BPOs, and government. Guava provides an
+  end-to-end conversational voice stack (ASR, LLM, TTS, plus compliance
+  guardrails) exposed through Python, TypeScript, and Elixir SDKs, a "guava" CLI,
+  a managed cloud deployment platform, and a REST API for managing conversations,
+  transcripts, recordings, and SMS. It supports inbound and outbound calling over
+  WebRTC and SIP, with SOC 2 Type II, HITRUST i1, and PCI DSS posture and built-in
+  TCPA / A2P 10DLC / SHAKEN-STIR telephony compliance workflows. The legacy
+  gridspace.com domain now redirects to goguava.ai.
 url: https://raw.githubusercontent.com/api-evangelist/gridspace/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,12 +18,77 @@ x-backed-by:
 - bloomberg-beta
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://goguava.ai/favicon.ico
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Voice AI
+- Conversational AI
+- Voice Agents
+- Speech Recognition
+- Telephony
+- SMS
+- Contact Center
+- Regulated Industries
+- Healthcare
+apis:
+- aid: gridspace:gridspace-conversations-api
+  name: Gridspace Conversations API
+  description: Retrieve, inspect, and delete conversation data for completed calls.
+  humanURL: https://goguava.ai/docs/api-overview
+  baseURL: https://api.goguava.ai/v1
+  tags:
+  - Conversations
+  properties:
+  - type: OpenAPI
+    url: openapi/gridspace-conversations-api-openapi.yml
+  - type: Documentation
+    url: https://goguava.ai/docs/api-overview
+  - type: Authentication
+    url: authentication/gridspace-authentication.yml
+- aid: gridspace:gridspace-messages-api
+  name: Gridspace Messages API
+  description: Send SMS messages and read inbound messages received on your Guava numbers.
+  humanURL: https://goguava.ai/docs/api-overview
+  baseURL: https://api.goguava.ai/v1
+  tags:
+  - Messages
+  properties:
+  - type: OpenAPI
+    url: openapi/gridspace-messages-api-openapi.yml
+  - type: Documentation
+    url: https://goguava.ai/docs/api-overview
+  - type: Authentication
+    url: authentication/gridspace-authentication.yml
+- aid: gridspace:gridspace-sdk-api
+  name: Gridspace SDK API
+  description: SDK lifecycle utilities.
+  humanURL: https://goguava.ai/docs/api-overview
+  baseURL: https://api.goguava.ai/v1
+  tags:
+  - SDK
+  properties:
+  - type: OpenAPI
+    url: openapi/gridspace-sdk-api-openapi.yml
+  - type: Documentation
+    url: https://goguava.ai/docs/api-overview
+  - type: Authentication
+    url: authentication/gridspace-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -22,4 +96,83 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.gridspace.com
+  url: https://goguava.ai
+- type: DeveloperPortal
+  url: https://goguava.ai/docs
+- type: Documentation
+  url: https://goguava.ai/docs
+- type: APIReference
+  url: https://goguava.ai/docs/api-overview
+- type: GettingStarted
+  url: https://goguava.ai/docs/quickstart
+- type: SignUp
+  url: https://app.goguava.ai
+- type: Pricing
+  url: https://goguava.ai/pricing
+- type: TermsOfService
+  url: https://goguava.ai/terms
+- type: PrivacyPolicy
+  url: https://goguava.ai/privacy
+- type: Blog
+  url: https://goguava.ai/blog
+- type: Support
+  url: mailto:hi@goguava.ai
+- type: GitHubOrganization
+  url: https://github.com/goguava-ai
+- type: StatusPage
+  url: https://status.goguava.ai
+- type: ChangeLog
+  url: https://goguava.ai/docs/release-notes
+- type: Authentication
+  url: authentication/gridspace-authentication.yml
+- type: Packages
+  url: packages/gridspace-packages.yml
+- type: SDKs
+  url: packages/gridspace-packages.yml
+- type: CLI
+  url: cli/gridspace-cli.yml
+- type: Conventions
+  url: conventions/gridspace-conventions.yml
+- type: ErrorCatalog
+  url: errors/gridspace-problem-types.yml
+- type: DataModel
+  url: data-model/gridspace-data-model.yml
+- type: Lifecycle
+  url: lifecycle/gridspace-lifecycle.yml
+- type: Deprecation
+  url: lifecycle/gridspace-lifecycle.yml
+- type: ChangeLog
+  url: changelog/gridspace-changelog.yml
+- type: Conformance
+  url: conformance/gridspace-conformance.yml
+- type: Compliance
+  url: conformance/gridspace-conformance.yml
+- type: Components
+  url: components/gridspace-components.yml
+- type: Sandbox
+  url: sandbox/gridspace-sandbox.yml
+- type: MCPServer
+  url: mcp/gridspace-mcp.yml
+- type: LLMsTxt
+  url: llms/gridspace-llms.txt
+- type: Overlay
+  url: overlays/gridspace-guava-overlay.yaml
+- type: AgenticAccess
+  url: agentic-access/gridspace-agentic-access.yml
+- type: DomainSecurity
+  url: security/gridspace-domain-security.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Arazzo
+  name: Pull a call's full record (list, transcript, recording)
+  url: arazzo/gridspace-pull-call-record.yml
+- type: Arazzo
+  name: Send an SMS and poll for the reply
+  url: arazzo/gridspace-send-and-poll-sms.yml
+- type: Plans
+  url: plans/gridspace-plans.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

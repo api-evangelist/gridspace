@@ -1,0 +1,28 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Guava Voice Agent REST API
+  version: 1.0.0
+extends: openapi/gridspace-guava-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-rating: 4
+    x-api-evangelist-slug: gridspace
+    x-former-name: Gridspace
+    x-current-brand: Guava (goguava.ai)
+- target: $.info
+  update:
+    x-artifacts:
+      authentication: authentication/gridspace-authentication.yml
+      conventions: conventions/gridspace-conventions.yml
+      errors: errors/gridspace-problem-types.yml
+      data_model: data-model/gridspace-data-model.yml
+      changelog: changelog/gridspace-changelog.yml
+      lifecycle: lifecycle/gridspace-lifecycle.yml
+- target: $.info
+  update:
+    x-compliance: [SOC 2 Type II, HITRUST i1, PCI DSS Level 1, TCPA, A2P 10DLC, SHAKEN/STIR]
+- target: $.tags
+  update:
+    - name: Conversations
+      x-agentic-readiness: read-and-delete conversation records; cursor-paginated

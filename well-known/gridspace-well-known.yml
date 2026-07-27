@@ -1,0 +1,20 @@
+generated: '2026-07-19'
+method: searched
+source: probed /.well-known/ on Guava + legacy Gridspace hosts
+note: >-
+  No /.well-known/ discovery documents are published. All probes returned 404/000.
+  Recorded for auditability; absence is valid data.
+hosts:
+- host: https://goguava.ai
+  documents:
+  - { path: /.well-known/security.txt, status: 404 }
+  - { path: /.well-known/openid-configuration, status: 404 }
+  - { path: /.well-known/oauth-authorization-server, status: 404 }
+  - { path: /.well-known/api-catalog, status: 404 }
+  - { path: /.well-known/ai-plugin.json, status: 404 }
+- host: https://api.goguava.ai
+  documents:
+  - { path: /.well-known/security.txt, status: 000, note: connection refused / no public unauthenticated access }
+- host: https://www.gridspace.com
+  documents:
+  - { path: /.well-known/security.txt, status: 404, note: gridspace.com 301-redirects to goguava.ai }

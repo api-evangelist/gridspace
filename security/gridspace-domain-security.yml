@@ -1,0 +1,18 @@
+generated: '2026-07-19'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: goguava.ai
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 25 04:41:35 2026 GMT
+  hsts: false
+- host: api.goguava.ai
+  https: false
+domains:
+- domain: goguava.ai
+  dnssec: true
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: none

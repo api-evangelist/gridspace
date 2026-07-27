@@ -1,0 +1,59 @@
+generated: '2026-07-19'
+method: searched
+source: https://goguava.ai/docs/release-notes
+scheme: semver
+current_version: 0.34.0
+cadence: roughly weekly
+entries:
+- version: 0.34.0
+  date: '2026-07-14'
+  highlights:
+  - SIP headers now included in SDK call event payloads.
+  - Clearer CLI auth success/error feedback after OAuth callback.
+  - Conversations dashboard view filterable by phone number (state preserved in URL).
+  - Call detail pages display the reason a conversation ended.
+  breaking: false
+- version: 0.33.0
+  date: '2026-07-07'
+  highlights:
+  - guava deploy/update now accept a project_id argument (task_id removed).
+  - agent.roleplay() is the canonical testing method (agent.test_roleplay() aliased).
+  - Voice-based Do Not Call (DNC) detection for outbound campaigns.
+  breaking: true
+  breaking_notes: task_id parameter removed from deploy/update.
+- version: 0.32.0
+  date: '2026-06-30'
+  highlights:
+  - attach_campaign added to the TypeScript SDK (parity with Python).
+  - Campaign conversations filterable by status.
+  - Improved outbound voicemail detection.
+  breaking: false
+- version: 0.31.0
+  date: '2026-06-24'
+  highlights:
+  - on_dtmf support in the TypeScript SDK.
+  - guava create bundles the docs into new projects.
+  - Datetime filtering for campaign calling attempts.
+  breaking: false
+- version: 0.30.0
+  date: '2026-06-16'
+  highlights:
+  - New multimodal widget (guava-widget-audio-chat) supporting audio and text.
+  - Inbound SMS support and inbox API endpoint (GET /v1/messages).
+  - In-CLI campaign management and Do Not Call list checks.
+  - GET /v1/conversations gains phone-number query filters.
+  breaking: false
+- version: 0.29.0
+  date: '2026-06-09'
+  highlights:
+  - Text-based chat sessions.
+  - Agent testing framework (guava.testing.MockCall).
+  - CLI self-upgrade; TypeScript SDK Transport v2.
+  breaking: false
+- version: 0.28.0
+  date: '2026-06-02'
+  highlights:
+  - Smarter ambiguous-intent handling.
+  - Automated SMS follow-up for unanswered agentic-campaign calls.
+  - guava run passes through extra args.
+  breaking: false

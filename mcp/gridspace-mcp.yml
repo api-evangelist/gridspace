@@ -1,0 +1,37 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: openapi/gridspace-guava-openapi.yml
+note: >-
+  No official hosted/remote Guava MCP server was found (no entry in the MCP registry,
+  no @goguava-ai MCP package, nothing under goguava.ai/docs). The tools below are a
+  candidate surface derived one-to-one from the published REST operations.
+server:
+  name: guava
+  transport: http
+  url: null
+tools:
+- name: check_sdk_deprecation
+  description: Check whether a python-sdk/typescript-sdk version is supported or deprecated.
+  source_operation: openapi/gridspace-guava-openapi.yml#checkSdkDeprecation
+- name: list_conversations
+  description: List conversations (calls), newest first, with filters and cursor pagination.
+  source_operation: openapi/gridspace-guava-openapi.yml#listConversations
+- name: get_conversation
+  description: Get metadata for a single conversation by call_id.
+  source_operation: openapi/gridspace-guava-openapi.yml#getConversation
+- name: get_conversation_transcript
+  description: Get the speaker-by-speaker transcript for a conversation.
+  source_operation: openapi/gridspace-guava-openapi.yml#getConversationTranscript
+- name: get_conversation_recording
+  description: Download the WAV recording for a conversation.
+  source_operation: openapi/gridspace-guava-openapi.yml#getConversationRecording
+- name: delete_conversation
+  description: Permanently delete a conversation and its data.
+  source_operation: openapi/gridspace-guava-openapi.yml#deleteConversation
+- name: send_sms
+  description: Send a single SMS from one of your Guava numbers.
+  source_operation: openapi/gridspace-guava-openapi.yml#sendSms
+- name: list_messages
+  description: List inbound SMS received on a Guava number, oldest first.
+  source_operation: openapi/gridspace-guava-openapi.yml#listMessages

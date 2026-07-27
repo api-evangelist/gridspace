@@ -1,0 +1,34 @@
+generated: '2026-07-19'
+method: searched
+source: https://goguava.ai/docs/quickstart
+summary: >-
+  Guava does not publish payment-style "magic" test numbers, but it ships a rich
+  local/dev testing surface: run agents locally, drive them over a browser WebRTC
+  link or a local audio device, run text-only terminal chats, and unit/roleplay-test
+  handlers without placing real calls. Only values published in the docs are recorded.
+credentials:
+  api_key_env: GUAVA_API_KEY
+  api_key_prefix: 'gva-'
+  agent_number_env: GUAVA_AGENT_NUMBER
+  provisioning: https://app.goguava.ai/dashboard/api-keys
+local_testing:
+  run_local: guava run ./my-agent
+  modes:
+  - name: webrtc-browser
+    how: 'agent.attach_webrtc() / run examples; dial from the browser at https://app.goguava.ai/debug-webrtc'
+  - name: local-audio-device
+    how: attach the agent to your machine's microphone/speaker for a spoken test call
+  - name: text-chat
+    how: in-terminal text-only chat session for testing without audio
+  free_tier: Starter plan includes 500 minutes/year at $0 for testing on the live platform.
+automated_testing:
+  framework: guava.testing
+  primitives:
+  - name: MockCall
+    desc: Mock call interactions to unit-test individual agent handlers in isolation (Python + TypeScript).
+  - name: agent.roleplay()
+    desc: Run a simulated roleplay session and analyze the result (canonical since 0.33.0; agent.test_roleplay() aliased).
+  free_of_telephony: true
+example_values:
+  note: The docs use +1555xxxxxxx placeholder E.164 numbers in examples; these are illustrative, not reserved test numbers.
+  campaign_code_format: 'gcmp-xxxxxxxxxxxxxxxxxxxx'

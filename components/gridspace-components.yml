@@ -1,0 +1,22 @@
+generated: '2026-07-19'
+method: searched
+source: https://goguava.ai/docs/webrtc-widgets
+families:
+- name: WebRTC Voice/Chat Widget
+  description: >-
+    A browser-embeddable widget that connects a web page to a deployed Guava voice
+    agent over WebRTC, using a short-lived widget code minted by the SDK or CLI.
+  components:
+  - name: guava-widget
+    type: script-tag web widget
+    description: Embeds a click-to-call voice widget on any page.
+    loader: script tag with data attributes; widget code from `guava widget` (CLI) or client.createWebrtcAgent (SDK)
+  - name: guava-widget-audio-chat
+    type: multimodal web widget
+    description: Supports audio and text chat within a single session (added in Guava 0.30.0).
+  states: [idle, connecting, in-call, ended]
+  code_minting:
+    cli: guava widget [--ttl SEC]
+    sdk_python: client.create_webrtc_agent(ttl_sec=3600)
+    sdk_typescript: 'client.createWebrtcAgent({ ttlSec: 3600 })'
+  debug_page: https://app.goguava.ai/debug-webrtc

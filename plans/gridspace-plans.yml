@@ -1,0 +1,31 @@
+generated: '2026-07-19'
+method: searched
+source: https://goguava.ai/pricing
+currency: USD
+model: usage-based (pay per active agent minute) with monthly plan tiers and per-minute overage
+plans:
+- name: Starter
+  tagline: Free
+  price_monthly: 0
+  included_minutes_per_year: 500
+  overage_per_min: 0.15
+  features: [Full API + SDK access, Basic voice & agent capabilities, Community support]
+- name: Growth
+  tagline: Build
+  price_monthly: 149
+  included_minutes_per_year: 1500
+  overage_per_min: 0.12
+  features: [Custom prompts & orchestration, Basic analytics, Discord support]
+- name: Pro
+  tagline: Scale
+  price_monthly: 499
+  included_minutes_per_year: 7000
+  overage_per_min: 0.10
+  most_popular: true
+  features: [Advanced orchestration, Real-time tuning tools, Email support, Light SLA]
+- name: Custom
+  tagline: Enterprise
+  price_monthly: null
+  included_minutes_per_year: null
+  overage_per_min: null
+  features: [Custom volume with no overages, Dedicated infrastructure, Advanced compliance, Custom SLAs, Dedicated support, Volume discounts]

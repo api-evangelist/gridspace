@@ -1,0 +1,12 @@
+generated: '2026-07-19'
+method: derived
+source: arazzo/*.yml
+workflows:
+- file: gridspace-pull-call-record.yml
+  workflowId: pull-call-record
+  title: Pull a call's full record
+  summary: List recent conversations, then fetch one call's details, transcript, and recording.
+- file: gridspace-send-and-poll-sms.yml
+  workflowId: send-and-poll-sms
+  title: Send an SMS and poll for the reply
+  summary: Send an SMS from a Guava number, then poll the inbox for the recipient's reply.

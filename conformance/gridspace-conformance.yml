@@ -1,0 +1,48 @@
+generated: '2026-07-19'
+method: searched
+source: https://goguava.ai
+compliance_program:
+  published: true
+  page: https://goguava.ai
+  certifications:
+  - SOC 2 Type II
+  - HITRUST i1
+  - PCI DSS Level 1
+  note: >-
+    Certifications as stated on the goguava.ai homepage ("SOC 2 Type II, HITRUST i1,
+    PCI DSS Level 1"). HITRUST/PCI-compliant voice deployments are limited to English
+    and Spanish per the docs. Guava targets regulated industries (healthcare, banking,
+    insurance, government).
+telephony_compliance:
+  frameworks:
+  - id: tcpa
+    conforms: true
+    evidence: Outbound Dialing Registration (KYC) and TCPA/TSR certification workflow.
+  - id: a2p-10dlc
+    conforms: true
+    evidence: SMS Brand + Campaign Registration (A2P 10DLC) required before SMS delivery.
+  - id: shaken-stir
+    conforms: true
+    evidence: SHAKEN/STIR caller-ID attestation and CNAM registration supported.
+  - id: dnc
+    conforms: true
+    evidence: Do Not Call list checks and voice-based DNC opt-out detection for campaigns.
+standards:
+- id: rest
+  conforms: true
+  evidence: Resource-oriented HTTP/JSON API over https://api.goguava.ai/v1.
+- id: oauth2
+  conforms: true
+  evidence: CLI uses browser-based OAuth login (guava login).
+- id: bearer-token-auth
+  conforms: true
+  evidence: openapi securityScheme type http scheme bearer.
+- id: e164
+  conforms: true
+  evidence: All phone numbers are E.164 formatted.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Error bodies are plain JSON, not application/problem+json.
+- id: sip
+  conforms: true
+  evidence: SIP integration (Twilio Elastic SIP, Cisco CUBE/CUCM) with TLS on 5061.

@@ -1,0 +1,57 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/gridspace-guava-openapi.yml
+format: json
+envelope:
+  problem_json: false
+  notes: >-
+    Guava signals errors with the HTTP status code; response bodies are plain JSON
+    and do not use application/problem+json (RFC 9457). Titles/remediation below are
+    derived from the published per-endpoint error tables.
+problems:
+- status: 400
+  title: Bad request
+  meaning: >-
+    Invalid parameter — e.g. bad `limit`, `after` cursor, `campaign_id`, or date value
+    on list conversations; invalid `start`/`limit` on list messages; or a from_number
+    not owned by / not SMS-configured for your org on send-sms.
+  remediation: Validate query/body parameters; confirm the from_number is owned and SMS-enabled.
+  source_operations:
+  - openapi/gridspace-guava-openapi.yml#listConversations
+  - openapi/gridspace-guava-openapi.yml#listMessages
+  - openapi/gridspace-guava-openapi.yml#sendSms
+- status: 401
+  title: Invalid authentication
+  meaning: Missing or invalid API key in the Authorization header.
+  remediation: 'Send `Authorization: Bearer YOUR_GUAVA_API_KEY` with a valid key from the dashboard.'
+  source_operations:
+  - openapi/gridspace-guava-openapi.yml#checkSdkDeprecation
+  - openapi/gridspace-guava-openapi.yml#listConversations
+  - openapi/gridspace-guava-openapi.yml#getConversation
+  - openapi/gridspace-guava-openapi.yml#getConversationTranscript
+  - openapi/gridspace-guava-openapi.yml#getConversationRecording
+  - openapi/gridspace-guava-openapi.yml#deleteConversation
+  - openapi/gridspace-guava-openapi.yml#sendSms
+  - openapi/gridspace-guava-openapi.yml#listMessages
+- status: 404
+  title: Not found
+  meaning: The referenced call does not exist, or the to_number inbox is not owned by your organization.
+  remediation: Verify the call_id / to_number belongs to your organization.
+  source_operations:
+  - openapi/gridspace-guava-openapi.yml#getConversation
+  - openapi/gridspace-guava-openapi.yml#getConversationTranscript
+  - openapi/gridspace-guava-openapi.yml#getConversationRecording
+  - openapi/gridspace-guava-openapi.yml#deleteConversation
+  - openapi/gridspace-guava-openapi.yml#listMessages
+- status: 422
+  title: Unprocessable entity
+  meaning: from_number or to_number is not a valid E.164 number.
+  remediation: Format phone numbers in E.164 (e.g. +15551234567).
+  source_operations:
+  - openapi/gridspace-guava-openapi.yml#listConversations
+- status: 500
+  title: Upstream carrier failure
+  meaning: The upstream carrier failed to accept an outbound SMS.
+  remediation: Retry; if persistent, verify SMS brand/campaign registration and contact support.
+  source_operations:
+  - openapi/gridspace-guava-openapi.yml#sendSms

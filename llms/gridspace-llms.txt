@@ -1,0 +1,44 @@
+# Guava (formerly Gridspace)
+
+> Guava is a voice AI platform for regulated industries (healthcare, banking, insurance, BPOs, government), founded 2013 as Gridspace. It provides an end-to-end conversational voice stack (ASR, LLM, TTS + compliance guardrails) via Python/TypeScript/Elixir SDKs, a `guava` CLI, a managed cloud deploy platform, and a REST API for conversations, transcripts, recordings, and SMS over inbound/outbound WebRTC and SIP. gridspace.com now redirects to goguava.ai.
+
+## APIs
+
+- [Guava Voice Agent REST API](https://goguava.ai/docs/api-overview): Manage conversations, transcripts, recordings, and SMS. Base URL https://api.goguava.ai/v1, bearer API-key auth.
+
+## Specs
+
+- [OpenAPI 3.1](https://raw.githubusercontent.com/api-evangelist/gridspace/refs/heads/main/openapi/gridspace-guava-openapi.yml): 8 operations across Conversations, Messages, and SDK.
+
+## Docs
+
+- [Quickstart](https://goguava.ai/docs/quickstart): Install the CLI, scaffold, run, and deploy an agent.
+- [SDK-only Quickstart](https://goguava.ai/docs/sdk-installation): Install guava-sdk (Python) or @guava-ai/guava-sdk (TypeScript).
+- [API Overview](https://goguava.ai/docs/api-overview): Base URL, bearer auth, endpoints.
+- [Conversations API](https://goguava.ai/docs/conversations-api): List/get/transcript/recording/delete.
+- [Messages API](https://goguava.ai/docs/messages-api): Send SMS and read inbound messages.
+- [CLI Reference](https://goguava.ai/docs/cli-reference): The `guava` command surface.
+- [Release Notes](https://goguava.ai/docs/release-notes): Dated changelog.
+- [Coding-agent starter (plain text)](https://goguava.ai/docs/coding-agent-starter.md): AI-assistant-sized docs.
+
+## Artifacts
+
+- [Authentication](https://raw.githubusercontent.com/api-evangelist/gridspace/refs/heads/main/authentication/gridspace-authentication.yml)
+- [Conventions](https://raw.githubusercontent.com/api-evangelist/gridspace/refs/heads/main/conventions/gridspace-conventions.yml)
+- [Error catalog](https://raw.githubusercontent.com/api-evangelist/gridspace/refs/heads/main/errors/gridspace-problem-types.yml)
+- [Data model](https://raw.githubusercontent.com/api-evangelist/gridspace/refs/heads/main/data-model/gridspace-data-model.yml)
+- [Packages / SDKs](https://raw.githubusercontent.com/api-evangelist/gridspace/refs/heads/main/packages/gridspace-packages.yml)
+- [CLI](https://raw.githubusercontent.com/api-evangelist/gridspace/refs/heads/main/cli/gridspace-cli.yml)
+- [Changelog](https://raw.githubusercontent.com/api-evangelist/gridspace/refs/heads/main/changelog/gridspace-changelog.yml)
+- [Lifecycle](https://raw.githubusercontent.com/api-evangelist/gridspace/refs/heads/main/lifecycle/gridspace-lifecycle.yml)
+- [Conformance / Compliance](https://raw.githubusercontent.com/api-evangelist/gridspace/refs/heads/main/conformance/gridspace-conformance.yml)
+- [Plans](https://raw.githubusercontent.com/api-evangelist/gridspace/refs/heads/main/plans/gridspace-plans.yml)
+
+## Optional
+
+- [Pricing](https://goguava.ai/pricing)
+- [Status](https://status.goguava.ai)
+- [Blog](https://goguava.ai/blog)
+- [GitHub org](https://github.com/goguava-ai)
+- [Terms](https://goguava.ai/terms)
+- [Privacy](https://goguava.ai/privacy)

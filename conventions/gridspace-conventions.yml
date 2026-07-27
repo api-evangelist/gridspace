@@ -1,0 +1,54 @@
+generated: '2026-07-19'
+method: searched
+source: https://goguava.ai/docs/api-overview
+summary: >-
+  Cross-cutting request/response conventions for the Guava REST API, captured from
+  the published API reference and derived from the OpenAPI. Guava does NOT document
+  an idempotency-key mechanism, so no Idempotency contract is asserted.
+authentication:
+  style: bearer-api-key
+  header: 'Authorization: Bearer YOUR_GUAVA_API_KEY'
+  ref: authentication/gridspace-authentication.yml
+base_url: https://api.goguava.ai/v1
+versioning:
+  scheme: uri-path
+  current: v1
+  ref: lifecycle/gridspace-lifecycle.yml
+pagination:
+  styles:
+  - resource: conversations
+    style: cursor
+    request_params: [limit, after]
+    response_fields: [next_cursor, has_more]
+    order: newest-first
+    page_size: { default: 50, min: 1, max: 100 }
+    notes: Pass next_cursor from the previous response as `after`; keep paging until has_more is false.
+  - resource: messages
+    style: timestamp-window
+    request_params: [start, limit]
+    response_fields: [has_more]
+    order: oldest-first
+    page_size: { default: 50, min: 1, max: 100 }
+    notes: >-
+      `start` is inclusive — page by setting `start` to the received_at of the last
+      message; the boundary message repeats, so dedupe by `id`.
+identifiers:
+  phone_numbers: E.164 (e.g. +15551234567); URL-encode "+" as %2B in query strings
+  call_id: opaque hex string (e.g. 6064ab9663dc4eb0)
+  campaign_code: gcmp- prefixed (e.g. gcmp-xxxxxxxxxxxxxxxxxxxx)
+  api_key: gva- prefixed
+error_envelope:
+  format: json
+  problem_json: false
+  shape: HTTP status code carries the error; bodies are plain JSON. Not RFC 9457.
+  ref: errors/gridspace-problem-types.yml
+datetime: ISO 8601 (e.g. 2026-06-01T00:00:00Z)
+idempotency:
+  supported: false
+  notes: No Idempotency-Key header or idempotent-retry mechanism is documented by Guava.
+rate_limit_signaling:
+  documented: false
+  notes: No rate-limit response headers are documented in the public API reference.
+content_types:
+  request: application/json
+  responses: [application/json, audio/wav]

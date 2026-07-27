@@ -1,0 +1,12 @@
+generated: '2026-07-19'
+method: generated
+source: openapi/gridspace-guava-openapi.yml
+skills:
+- file: gridspace-pull-call-record.md
+  name: Pull a Guava call record
+  api: openapi/gridspace-guava-openapi.yml
+  operations: [listConversations, getConversation, getConversationTranscript, getConversationRecording]
+- file: gridspace-send-and-poll-sms.md
+  name: Send an SMS and read replies with Guava
+  api: openapi/gridspace-guava-openapi.yml
+  operations: [sendSms, listMessages]
