@@ -1,0 +1,1106 @@
+{
+  "info": {
+    "_postman_id": "9189e7d9-22e4-4e2a-8e2e-09a35397fb38",
+    "name": "Guava Voice Agent REST Conversations API",
+    "description": "The Guava (formerly Gridspace) REST API lets you manage calls, conversations, SMS messages, and account resources directly over HTTP \u2014 no SDK required. Guava is a voice AI platform for regulated industries (healthcare, banking, insurance, BPOs, government). This specification was reconstructed faithfully from Guava's published REST API reference at https://goguava.ai/docs/api-overview; every path, parameter, and response field is documented by the provider.\n\nContact Support:\n Name: Guava Support\n Email: hi@goguava.ai",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:52:03.000Z",
+    "updatedAt": "2026-07-28T01:52:03.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9189e7d9-22e4-4e2a-8e2e-09a35397fb38"
+  },
+  "item": [
+    {
+      "name": "conversations",
+      "item": [
+        {
+          "name": "{call_id}",
+          "item": [
+            {
+              "name": "transcript",
+              "item": [
+                {
+                  "name": "Get conversation transcript",
+                  "id": "eeca68a9-f97b-4e5b-9f5f-dc6eb2634fd2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/conversations/:call_id/transcript",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "conversations",
+                        ":call_id",
+                        "transcript"
+                      ],
+                      "variable": [
+                        {
+                          "id": "23ca84b2-b5bd-4431-ae12-052912ea1f34",
+                          "key": "call_id",
+                          "value": "<string>",
+                          "description": "(Required) ID of the call."
+                        }
+                      ]
+                    },
+                    "description": "Download the transcript for a conversation as a list of turns."
+                  },
+                  "response": [
+                    {
+                      "id": "69bbef67-fd0d-46a8-81a1-01c0a4b31575",
+                      "name": "The transcript turns.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/conversations/:call_id/transcript",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "conversations",
+                            ":call_id",
+                            "transcript"
+                          ],
+                          "variable": [
+                            {
+                              "key": "call_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"speaker\": \"AGENT\",\n    \"text\": \"<string>\",\n    \"offset_ms\": \"<integer>\"\n  },\n  {\n    \"speaker\": \"HUMAN\",\n    \"text\": \"<string>\",\n    \"offset_ms\": \"<integer>\"\n  }\n]",
+                      "createdAt": "2026-07-28T01:52:04.000Z",
+                      "updatedAt": "2026-07-28T01:52:04.000Z",
+                      "uid": "35240-69bbef67-fd0d-46a8-81a1-01c0a4b31575"
+                    },
+                    {
+                      "id": "e6540b3c-fb8c-4a0d-8b77-70e88d2840b9",
+                      "name": "Invalid authentication.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/conversations/:call_id/transcript",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "conversations",
+                            ":call_id",
+                            "transcript"
+                          ],
+                          "variable": [
+                            {
+                              "key": "call_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:52:04.000Z",
+                      "updatedAt": "2026-07-28T01:52:04.000Z",
+                      "uid": "35240-e6540b3c-fb8c-4a0d-8b77-70e88d2840b9"
+                    },
+                    {
+                      "id": "b51ebec5-9e52-4677-a93d-562da43bc05d",
+                      "name": "The call with this ID does not exist.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/conversations/:call_id/transcript",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "conversations",
+                            ":call_id",
+                            "transcript"
+                          ],
+                          "variable": [
+                            {
+                              "key": "call_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:52:04.000Z",
+                      "updatedAt": "2026-07-28T01:52:04.000Z",
+                      "uid": "35240-b51ebec5-9e52-4677-a93d-562da43bc05d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:52:04.000Z",
+                  "updatedAt": "2026-07-28T01:52:04.000Z",
+                  "uid": "35240-eeca68a9-f97b-4e5b-9f5f-dc6eb2634fd2"
+                }
+              ],
+              "id": "b522802c-0282-4d3c-9984-a5e87387e321",
+              "createdAt": "2026-07-28T01:52:04.000Z",
+              "updatedAt": "2026-07-28T01:52:04.000Z",
+              "uid": "35240-b522802c-0282-4d3c-9984-a5e87387e321"
+            },
+            {
+              "name": "recording",
+              "item": [
+                {
+                  "name": "Get conversation recording",
+                  "id": "67a8470e-fa5e-438a-a270-4954bacb8c9e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "audio/wav"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/conversations/:call_id/recording",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "conversations",
+                        ":call_id",
+                        "recording"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7db6bc02-a8f3-463d-a8a4-ecf6804e6256",
+                          "key": "call_id",
+                          "value": "<string>",
+                          "description": "(Required) ID of the call."
+                        }
+                      ]
+                    },
+                    "description": "Download the audio recording for a conversation in WAV format."
+                  },
+                  "response": [
+                    {
+                      "id": "a426e1dc-a6aa-4330-9868-70691695a051",
+                      "name": "WAV audio file.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "audio/wav"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/conversations/:call_id/recording",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "conversations",
+                            ":call_id",
+                            "recording"
+                          ],
+                          "variable": [
+                            {
+                              "key": "call_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "audio/wav"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<binary>",
+                      "createdAt": "2026-07-28T01:52:04.000Z",
+                      "updatedAt": "2026-07-28T01:52:04.000Z",
+                      "uid": "35240-a426e1dc-a6aa-4330-9868-70691695a051"
+                    },
+                    {
+                      "id": "5c2fc5f5-92ff-47df-ba82-64790e557f94",
+                      "name": "Invalid authentication.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/conversations/:call_id/recording",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "conversations",
+                            ":call_id",
+                            "recording"
+                          ],
+                          "variable": [
+                            {
+                              "key": "call_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:52:04.000Z",
+                      "updatedAt": "2026-07-28T01:52:04.000Z",
+                      "uid": "35240-5c2fc5f5-92ff-47df-ba82-64790e557f94"
+                    },
+                    {
+                      "id": "2a5e9934-7c48-4ac6-b0c5-ff2f383eba7d",
+                      "name": "The call with this ID does not exist.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/conversations/:call_id/recording",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "conversations",
+                            ":call_id",
+                            "recording"
+                          ],
+                          "variable": [
+                            {
+                              "key": "call_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:52:04.000Z",
+                      "updatedAt": "2026-07-28T01:52:04.000Z",
+                      "uid": "35240-2a5e9934-7c48-4ac6-b0c5-ff2f383eba7d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:52:04.000Z",
+                  "updatedAt": "2026-07-28T01:52:04.000Z",
+                  "uid": "35240-67a8470e-fa5e-438a-a270-4954bacb8c9e"
+                }
+              ],
+              "id": "ddb6c2c3-b4d3-49cb-aeaf-31b9df7e06fd",
+              "createdAt": "2026-07-28T01:52:04.000Z",
+              "updatedAt": "2026-07-28T01:52:04.000Z",
+              "uid": "35240-ddb6c2c3-b4d3-49cb-aeaf-31b9df7e06fd"
+            },
+            {
+              "name": "Get conversation details",
+              "id": "5b04bc5a-1876-45f9-ad61-076407e3291e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/conversations/:call_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "conversations",
+                    ":call_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "60f4aa49-765b-4196-9404-0c67eff60567",
+                      "key": "call_id",
+                      "value": "<string>",
+                      "description": "(Required) ID of the call."
+                    }
+                  ]
+                },
+                "description": "Retrieve metadata about a single conversation."
+              },
+              "response": [
+                {
+                  "id": "6c3e1108-6159-48ca-8755-a2da04e466e8",
+                  "name": "The conversation.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/conversations/:call_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "conversations",
+                        ":call_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "call_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"call_id\": \"<string>\",\n  \"ts\": \"<dateTime>\",\n  \"direction\": \"inbound\",\n  \"from_number\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"duration_sec\": \"<integer>\",\n  \"campaign_id\": \"<string>\",\n  \"termination_reason\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:52:04.000Z",
+                  "updatedAt": "2026-07-28T01:52:04.000Z",
+                  "uid": "35240-6c3e1108-6159-48ca-8755-a2da04e466e8"
+                },
+                {
+                  "id": "b0d4c229-d80b-4f68-a3ef-b0fc597d1256",
+                  "name": "Invalid authentication.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/conversations/:call_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "conversations",
+                        ":call_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "call_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:52:04.000Z",
+                  "updatedAt": "2026-07-28T01:52:04.000Z",
+                  "uid": "35240-b0d4c229-d80b-4f68-a3ef-b0fc597d1256"
+                },
+                {
+                  "id": "8008e537-e2d4-4a05-939a-dd0db58f9a16",
+                  "name": "The call with this ID does not exist.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/conversations/:call_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "conversations",
+                        ":call_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "call_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:52:04.000Z",
+                  "updatedAt": "2026-07-28T01:52:04.000Z",
+                  "uid": "35240-8008e537-e2d4-4a05-939a-dd0db58f9a16"
+                }
+              ],
+              "createdAt": "2026-07-28T01:52:04.000Z",
+              "updatedAt": "2026-07-28T01:52:04.000Z",
+              "uid": "35240-5b04bc5a-1876-45f9-ad61-076407e3291e"
+            },
+            {
+              "name": "Delete a conversation",
+              "id": "7384f6e7-78e2-43bb-84c6-6eaa01f18a7d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/conversations/:call_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "conversations",
+                    ":call_id"
+                  ],
+                  "variable": [
+                    {
+                      "id": "3a397d4d-8a2c-4910-bb2a-0b6bb9e985d2",
+                      "key": "call_id",
+                      "value": "<string>",
+                      "description": "(Required) ID of the call."
+                    }
+                  ]
+                },
+                "description": "Permanently delete a conversation and its associated data."
+              },
+              "response": [
+                {
+                  "id": "ab4fd640-b15b-44ff-8c78-5b3a8fdb7f0e",
+                  "name": "Deleted (empty body).",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/conversations/:call_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "conversations",
+                        ":call_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "call_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:52:04.000Z",
+                  "updatedAt": "2026-07-28T01:52:04.000Z",
+                  "uid": "35240-ab4fd640-b15b-44ff-8c78-5b3a8fdb7f0e"
+                },
+                {
+                  "id": "45341959-d407-425e-ace5-f35458f763df",
+                  "name": "Invalid authentication.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/conversations/:call_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "conversations",
+                        ":call_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "call_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:52:04.000Z",
+                  "updatedAt": "2026-07-28T01:52:04.000Z",
+                  "uid": "35240-45341959-d407-425e-ace5-f35458f763df"
+                },
+                {
+                  "id": "c789cb51-87de-47d3-b811-161be70aa67b",
+                  "name": "The call with this ID does not exist.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/conversations/:call_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "conversations",
+                        ":call_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "call_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:52:04.000Z",
+                  "updatedAt": "2026-07-28T01:52:04.000Z",
+                  "uid": "35240-c789cb51-87de-47d3-b811-161be70aa67b"
+                }
+              ],
+              "createdAt": "2026-07-28T01:52:04.000Z",
+              "updatedAt": "2026-07-28T01:52:04.000Z",
+              "uid": "35240-7384f6e7-78e2-43bb-84c6-6eaa01f18a7d"
+            }
+          ],
+          "id": "8c710d67-e597-49d5-abfd-5f08d9c73bcc",
+          "createdAt": "2026-07-28T01:52:04.000Z",
+          "updatedAt": "2026-07-28T01:52:04.000Z",
+          "uid": "35240-8c710d67-e597-49d5-abfd-5f08d9c73bcc"
+        },
+        {
+          "name": "List conversations",
+          "id": "de3e3b61-d228-4da8-9186-cc2d4c107f6e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/conversations?from_number=<string>&to_number=<string>&direction=inbound&date_from=<dateTime>&date_to=<dateTime>&campaign_id=<string>&limit=50&after=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "conversations"
+              ],
+              "query": [
+                {
+                  "description": "Only return calls placed from this number (E.164).",
+                  "key": "from_number",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Only return calls placed to this number (E.164).",
+                  "key": "to_number",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by call direction from the perspective of your agent.",
+                  "key": "direction",
+                  "value": "inbound"
+                },
+                {
+                  "description": "Only return calls at or after this time (ISO 8601).",
+                  "key": "date_from",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Only return calls at or before this time (ISO 8601).",
+                  "key": "date_to",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Only return calls placed by this outbound campaign.",
+                  "key": "campaign_id",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of conversations to return.",
+                  "key": "limit",
+                  "value": "50"
+                },
+                {
+                  "description": "Pagination cursor \u2014 pass the next_cursor from the previous response.",
+                  "key": "after",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "List your organization's conversations, newest first. Cursor paginated."
+          },
+          "response": [
+            {
+              "id": "e9105d06-9d32-4798-a97a-e9f03f237d54",
+              "name": "A page of conversations.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/conversations?from_number=<string>&to_number=<string>&direction=inbound&date_from=<dateTime>&date_to=<dateTime>&campaign_id=<string>&limit=50&after=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "conversations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Only return calls placed from this number (E.164).",
+                      "key": "from_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return calls placed to this number (E.164).",
+                      "key": "to_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by call direction from the perspective of your agent.",
+                      "key": "direction",
+                      "value": "inbound"
+                    },
+                    {
+                      "description": "Only return calls at or after this time (ISO 8601).",
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Only return calls at or before this time (ISO 8601).",
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Only return calls placed by this outbound campaign.",
+                      "key": "campaign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of conversations to return.",
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "description": "Pagination cursor \u2014 pass the next_cursor from the previous response.",
+                      "key": "after",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"conversations\": [\n    {\n      \"id\": \"<string>\",\n      \"call_id\": \"<string>\",\n      \"ts\": \"<dateTime>\",\n      \"direction\": \"inbound\",\n      \"from_number\": \"<string>\",\n      \"to_number\": \"<string>\",\n      \"duration_sec\": \"<integer>\",\n      \"campaign_id\": \"<string>\",\n      \"termination_reason\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"call_id\": \"<string>\",\n      \"ts\": \"<dateTime>\",\n      \"direction\": \"outbound\",\n      \"from_number\": \"<string>\",\n      \"to_number\": \"<string>\",\n      \"duration_sec\": \"<integer>\",\n      \"campaign_id\": \"<string>\",\n      \"termination_reason\": \"<string>\"\n    }\n  ],\n  \"next_cursor\": \"<string>\",\n  \"has_more\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T01:52:04.000Z",
+              "updatedAt": "2026-07-28T01:52:04.000Z",
+              "uid": "35240-e9105d06-9d32-4798-a97a-e9f03f237d54"
+            },
+            {
+              "id": "41dff9e0-0e7b-4020-8a0f-237af58dc03b",
+              "name": "Invalid limit, after cursor, campaign_id, or date value.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/conversations?from_number=<string>&to_number=<string>&direction=inbound&date_from=<dateTime>&date_to=<dateTime>&campaign_id=<string>&limit=50&after=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "conversations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Only return calls placed from this number (E.164).",
+                      "key": "from_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return calls placed to this number (E.164).",
+                      "key": "to_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by call direction from the perspective of your agent.",
+                      "key": "direction",
+                      "value": "inbound"
+                    },
+                    {
+                      "description": "Only return calls at or after this time (ISO 8601).",
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Only return calls at or before this time (ISO 8601).",
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Only return calls placed by this outbound campaign.",
+                      "key": "campaign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of conversations to return.",
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "description": "Pagination cursor \u2014 pass the next_cursor from the previous response.",
+                      "key": "after",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:52:04.000Z",
+              "updatedAt": "2026-07-28T01:52:04.000Z",
+              "uid": "35240-41dff9e0-0e7b-4020-8a0f-237af58dc03b"
+            },
+            {
+              "id": "1082feb2-7f89-4397-b635-cd721378155c",
+              "name": "Invalid authentication.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/conversations?from_number=<string>&to_number=<string>&direction=inbound&date_from=<dateTime>&date_to=<dateTime>&campaign_id=<string>&limit=50&after=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "conversations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Only return calls placed from this number (E.164).",
+                      "key": "from_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return calls placed to this number (E.164).",
+                      "key": "to_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by call direction from the perspective of your agent.",
+                      "key": "direction",
+                      "value": "inbound"
+                    },
+                    {
+                      "description": "Only return calls at or after this time (ISO 8601).",
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Only return calls at or before this time (ISO 8601).",
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Only return calls placed by this outbound campaign.",
+                      "key": "campaign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of conversations to return.",
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "description": "Pagination cursor \u2014 pass the next_cursor from the previous response.",
+                      "key": "after",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:52:04.000Z",
+              "updatedAt": "2026-07-28T01:52:04.000Z",
+              "uid": "35240-1082feb2-7f89-4397-b635-cd721378155c"
+            },
+            {
+              "id": "bcb16ad9-065c-4a13-849a-23a9098234ce",
+              "name": "from_number or to_number is not a valid E.164 number.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/conversations?from_number=<string>&to_number=<string>&direction=inbound&date_from=<dateTime>&date_to=<dateTime>&campaign_id=<string>&limit=50&after=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "conversations"
+                  ],
+                  "query": [
+                    {
+                      "description": "Only return calls placed from this number (E.164).",
+                      "key": "from_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return calls placed to this number (E.164).",
+                      "key": "to_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by call direction from the perspective of your agent.",
+                      "key": "direction",
+                      "value": "inbound"
+                    },
+                    {
+                      "description": "Only return calls at or after this time (ISO 8601).",
+                      "key": "date_from",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Only return calls at or before this time (ISO 8601).",
+                      "key": "date_to",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Only return calls placed by this outbound campaign.",
+                      "key": "campaign_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of conversations to return.",
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "description": "Pagination cursor \u2014 pass the next_cursor from the previous response.",
+                      "key": "after",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:52:04.000Z",
+              "updatedAt": "2026-07-28T01:52:04.000Z",
+              "uid": "35240-bcb16ad9-065c-4a13-849a-23a9098234ce"
+            }
+          ],
+          "createdAt": "2026-07-28T01:52:04.000Z",
+          "updatedAt": "2026-07-28T01:52:04.000Z",
+          "uid": "35240-de3e3b61-d228-4da8-9186-cc2d4c107f6e"
+        }
+      ],
+      "id": "1b937f22-35b0-407c-a9d4-fb620fe3ea80",
+      "createdAt": "2026-07-28T01:52:04.000Z",
+      "updatedAt": "2026-07-28T01:52:04.000Z",
+      "uid": "35240-1b937f22-35b0-407c-a9d4-fb620fe3ea80"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.goguava.ai/v1"
+    }
+  ]
+}

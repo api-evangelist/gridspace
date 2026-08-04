@@ -1,0 +1,597 @@
+{
+  "info": {
+    "_postman_id": "8c927833-8f36-49d3-bfb6-039bd4c4c850",
+    "name": "Guava Voice Agent REST Conversations Messages API",
+    "description": "The Guava (formerly Gridspace) REST API lets you manage calls, conversations, SMS messages, and account resources directly over HTTP \u2014 no SDK required. Guava is a voice AI platform for regulated industries (healthcare, banking, insurance, BPOs, government). This specification was reconstructed faithfully from Guava's published REST API reference at https://goguava.ai/docs/api-overview; every path, parameter, and response field is documented by the provider.\n\nContact Support:\n Name: Guava Support\n Email: hi@goguava.ai",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:52:04.000Z",
+    "updatedAt": "2026-07-28T01:52:04.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8c927833-8f36-49d3-bfb6-039bd4c4c850"
+  },
+  "item": [
+    {
+      "name": "send-sms",
+      "item": [
+        {
+          "name": "Send an SMS",
+          "id": "257cd72c-290e-44e9-881f-3d47e46c0260",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"from_number\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/send-sms",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "send-sms"
+              ]
+            },
+            "description": "Send a single SMS from one of your Guava numbers."
+          },
+          "response": [
+            {
+              "id": "8c268b3f-01af-4d1d-a177-c406fe8f4c25",
+              "name": "Message accepted for delivery.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_number\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/send-sms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "send-sms"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:52:05.000Z",
+              "updatedAt": "2026-07-28T01:52:05.000Z",
+              "uid": "35240-8c268b3f-01af-4d1d-a177-c406fe8f4c25"
+            },
+            {
+              "id": "4be827a7-4ffb-4d0a-902d-876e59def8f8",
+              "name": "The from_number isn't owned by your organization, or doesn't have SMS configured.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_number\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/send-sms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "send-sms"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:52:05.000Z",
+              "updatedAt": "2026-07-28T01:52:05.000Z",
+              "uid": "35240-4be827a7-4ffb-4d0a-902d-876e59def8f8"
+            },
+            {
+              "id": "7b40311f-ebff-419b-b95c-a309673f79f9",
+              "name": "Invalid authentication.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_number\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/send-sms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "send-sms"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:52:05.000Z",
+              "updatedAt": "2026-07-28T01:52:05.000Z",
+              "uid": "35240-7b40311f-ebff-419b-b95c-a309673f79f9"
+            },
+            {
+              "id": "3ae83df1-eb85-422c-bcbe-9d57b3d327ee",
+              "name": "The upstream carrier failed to accept the message.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_number\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/send-sms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "send-sms"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:52:05.000Z",
+              "updatedAt": "2026-07-28T01:52:05.000Z",
+              "uid": "35240-3ae83df1-eb85-422c-bcbe-9d57b3d327ee"
+            }
+          ],
+          "createdAt": "2026-07-28T01:52:05.000Z",
+          "updatedAt": "2026-07-28T01:52:05.000Z",
+          "uid": "35240-257cd72c-290e-44e9-881f-3d47e46c0260"
+        }
+      ],
+      "id": "d1f36cda-aad7-462f-9cd3-d0b9ab9a562a",
+      "createdAt": "2026-07-28T01:52:05.000Z",
+      "updatedAt": "2026-07-28T01:52:05.000Z",
+      "uid": "35240-d1f36cda-aad7-462f-9cd3-d0b9ab9a562a"
+    },
+    {
+      "name": "messages",
+      "item": [
+        {
+          "name": "List inbound messages",
+          "id": "06a7b028-abb3-4469-8432-74b0ee3f39d3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/messages?to_number=<string>&start=<dateTime>&from_number=<string>&modality=sms&limit=50",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "messages"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The Guava number whose inbox you want to read (E.164). Must be owned by your organization.",
+                  "key": "to_number",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Only return messages received at or after this time (ISO 8601, inclusive).",
+                  "key": "start",
+                  "value": "<dateTime>"
+                },
+                {
+                  "description": "Only return messages sent from this number (E.164).",
+                  "key": "from_number",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Only return messages on this channel.",
+                  "key": "modality",
+                  "value": "sms"
+                },
+                {
+                  "description": "Maximum number of messages to return.",
+                  "key": "limit",
+                  "value": "50"
+                }
+              ]
+            },
+            "description": "List the inbound messages received on one of your Guava numbers, oldest first."
+          },
+          "response": [
+            {
+              "id": "c24fa697-22fd-4745-8e6e-fd09620924be",
+              "name": "A page of inbound messages.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/messages?to_number=<string>&start=<dateTime>&from_number=<string>&modality=sms&limit=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Guava number whose inbox you want to read (E.164). Must be owned by your organization.",
+                      "key": "to_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return messages received at or after this time (ISO 8601, inclusive).",
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Only return messages sent from this number (E.164).",
+                      "key": "from_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return messages on this channel.",
+                      "key": "modality",
+                      "value": "sms"
+                    },
+                    {
+                      "description": "Maximum number of messages to return.",
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"messages\": [\n    {\n      \"id\": \"<string>\",\n      \"from_number\": \"<string>\",\n      \"to_number\": \"<string>\",\n      \"content\": \"<string>\",\n      \"received_at\": \"<dateTime>\",\n      \"modality\": \"sms\",\n      \"direction\": \"inbound\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"from_number\": \"<string>\",\n      \"to_number\": \"<string>\",\n      \"content\": \"<string>\",\n      \"received_at\": \"<dateTime>\",\n      \"modality\": \"sms\",\n      \"direction\": \"inbound\"\n    }\n  ],\n  \"has_more\": \"<boolean>\"\n}",
+              "createdAt": "2026-07-28T01:52:05.000Z",
+              "updatedAt": "2026-07-28T01:52:05.000Z",
+              "uid": "35240-c24fa697-22fd-4745-8e6e-fd09620924be"
+            },
+            {
+              "id": "88501f1f-9f74-4001-9cc6-e6342bc0c1b0",
+              "name": "Invalid start timestamp or limit value.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/messages?to_number=<string>&start=<dateTime>&from_number=<string>&modality=sms&limit=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Guava number whose inbox you want to read (E.164). Must be owned by your organization.",
+                      "key": "to_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return messages received at or after this time (ISO 8601, inclusive).",
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Only return messages sent from this number (E.164).",
+                      "key": "from_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return messages on this channel.",
+                      "key": "modality",
+                      "value": "sms"
+                    },
+                    {
+                      "description": "Maximum number of messages to return.",
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:52:05.000Z",
+              "updatedAt": "2026-07-28T01:52:05.000Z",
+              "uid": "35240-88501f1f-9f74-4001-9cc6-e6342bc0c1b0"
+            },
+            {
+              "id": "9530d6bc-8910-42ef-9792-6ffe4b27526b",
+              "name": "Invalid authentication.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/messages?to_number=<string>&start=<dateTime>&from_number=<string>&modality=sms&limit=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Guava number whose inbox you want to read (E.164). Must be owned by your organization.",
+                      "key": "to_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return messages received at or after this time (ISO 8601, inclusive).",
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Only return messages sent from this number (E.164).",
+                      "key": "from_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return messages on this channel.",
+                      "key": "modality",
+                      "value": "sms"
+                    },
+                    {
+                      "description": "Maximum number of messages to return.",
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:52:05.000Z",
+              "updatedAt": "2026-07-28T01:52:05.000Z",
+              "uid": "35240-9530d6bc-8910-42ef-9792-6ffe4b27526b"
+            },
+            {
+              "id": "6c6e6322-faf8-4b14-8c05-b1b92c5ae9f4",
+              "name": "The to_number isn't owned by your organization.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/messages?to_number=<string>&start=<dateTime>&from_number=<string>&modality=sms&limit=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "messages"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The Guava number whose inbox you want to read (E.164). Must be owned by your organization.",
+                      "key": "to_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return messages received at or after this time (ISO 8601, inclusive).",
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "description": "Only return messages sent from this number (E.164).",
+                      "key": "from_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only return messages on this channel.",
+                      "key": "modality",
+                      "value": "sms"
+                    },
+                    {
+                      "description": "Maximum number of messages to return.",
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:52:05.000Z",
+              "updatedAt": "2026-07-28T01:52:05.000Z",
+              "uid": "35240-6c6e6322-faf8-4b14-8c05-b1b92c5ae9f4"
+            }
+          ],
+          "createdAt": "2026-07-28T01:52:05.000Z",
+          "updatedAt": "2026-07-28T01:52:05.000Z",
+          "uid": "35240-06a7b028-abb3-4469-8432-74b0ee3f39d3"
+        }
+      ],
+      "id": "3424db3c-c5a9-4fd3-a64d-de7eb0e6ee2c",
+      "createdAt": "2026-07-28T01:52:05.000Z",
+      "updatedAt": "2026-07-28T01:52:05.000Z",
+      "uid": "35240-3424db3c-c5a9-4fd3-a64d-de7eb0e6ee2c"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.goguava.ai/v1"
+    }
+  ]
+}
