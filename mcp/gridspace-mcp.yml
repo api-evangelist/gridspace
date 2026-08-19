@@ -2,10 +2,9 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: openapi/gridspace-guava-openapi.yml
-note: >-
-  No official hosted/remote Guava MCP server was found (no entry in the MCP registry,
-  no @goguava-ai MCP package, nothing under goguava.ai/docs). The tools below are a
-  candidate surface derived one-to-one from the published REST operations.
+note: No official hosted/remote Guava MCP server was found (no entry in the MCP registry, no @goguava-ai
+  MCP package, nothing under goguava.ai/docs). The tools below are a candidate surface derived one-to-one
+  from the published REST operations.
 server:
   name: guava
   transport: http
@@ -35,3 +34,9 @@ tools:
 - name: list_messages
   description: List inbound SMS received on a Guava number, oldest first.
   source_operation: openapi/gridspace-guava-openapi.yml#listMessages
+deployment:
+  mode: none
+  verified: derived
+  tools: 8
+  checked: '2026-08-12'
+  source: catalog MCP census

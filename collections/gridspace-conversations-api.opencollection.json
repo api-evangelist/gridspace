@@ -1,0 +1,161 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Guava Voice Agent REST Conversations API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Conversations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List conversations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.goguava.ai/v1/conversations",
+            "params": [
+              {
+                "name": "from_number",
+                "value": "",
+                "type": "query",
+                "description": "Only return calls placed from this number (E.164)."
+              },
+              {
+                "name": "to_number",
+                "value": "",
+                "type": "query",
+                "description": "Only return calls placed to this number (E.164)."
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query",
+                "description": "Filter by call direction from the perspective of your agent."
+              },
+              {
+                "name": "date_from",
+                "value": "",
+                "type": "query",
+                "description": "Only return calls at or after this time (ISO 8601)."
+              },
+              {
+                "name": "date_to",
+                "value": "",
+                "type": "query",
+                "description": "Only return calls at or before this time (ISO 8601)."
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "query",
+                "description": "Only return calls placed by this outbound campaign."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of conversations to return."
+              },
+              {
+                "name": "after",
+                "value": "",
+                "type": "query",
+                "description": "Pagination cursor — pass the next_cursor from the previous response."
+              }
+            ]
+          },
+          "docs": "List your organization's conversations, newest first. Cursor paginated."
+        },
+        {
+          "info": {
+            "name": "Get conversation details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.goguava.ai/v1/conversations/:call_id",
+            "params": [
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the call."
+              }
+            ]
+          },
+          "docs": "Retrieve metadata about a single conversation."
+        },
+        {
+          "info": {
+            "name": "Delete a conversation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.goguava.ai/v1/conversations/:call_id",
+            "params": [
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the call."
+              }
+            ]
+          },
+          "docs": "Permanently delete a conversation and its associated data."
+        },
+        {
+          "info": {
+            "name": "Get conversation transcript",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.goguava.ai/v1/conversations/:call_id/transcript",
+            "params": [
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the call."
+              }
+            ]
+          },
+          "docs": "Download the transcript for a conversation as a list of turns."
+        },
+        {
+          "info": {
+            "name": "Get conversation recording",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.goguava.ai/v1/conversations/:call_id/recording",
+            "params": [
+              {
+                "name": "call_id",
+                "value": "",
+                "type": "path",
+                "description": "ID of the call."
+              }
+            ]
+          },
+          "docs": "Download the audio recording for a conversation in WAV format."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

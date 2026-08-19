@@ -1,0 +1,187 @@
+{
+  "item": [
+    {
+      "id": "dd5a90a7-c3c9-4a1c-85a4-c81a73d5a801",
+      "name": "SDK",
+      "description": {
+        "content": "SDK lifecycle utilities.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "edff0ee3-4cee-4f05-8b76-1a015eae1779",
+          "name": "Check SDK deprecation status",
+          "request": {
+            "name": "Check SDK deprecation status",
+            "description": {
+              "content": "Check the deprecation status of a specific SDK version. REST-only — there is no SDK or CLI method for it.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "check-sdk-deprecation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sdk_name\": \"<string>\",\n  \"sdk_version\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ee60dc90-92bc-44b6-a0b8-a5484d25f91f",
+              "name": "Deprecation status returned.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "check-sdk-deprecation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sdk_name\": \"<string>\",\n  \"sdk_version\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"deprecation_status\": \"supported\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "45e27612-266b-4679-9bb7-a61040503e27",
+              "name": "Invalid authentication.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "check-sdk-deprecation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sdk_name\": \"<string>\",\n  \"sdk_version\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.goguava.ai/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2d593ae6-3e26-4e7c-a81b-773e77ce5c76",
+    "name": "Guava Voice Agent REST Conversations SDK API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Guava (formerly Gridspace) REST API lets you manage calls, conversations, SMS messages, and account resources directly over HTTP — no SDK required. Guava is a voice AI platform for regulated industries (healthcare, banking, insurance, BPOs, government). This specification was reconstructed faithfully from Guava's published REST API reference at https://goguava.ai/docs/api-overview; every path, parameter, and response field is documented by the provider.\n\nContact Support:\n Name: Guava Support\n Email: hi@goguava.ai",
+      "type": "text/plain"
+    }
+  }
+}

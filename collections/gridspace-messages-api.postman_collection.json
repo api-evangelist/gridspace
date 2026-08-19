@@ -1,0 +1,591 @@
+{
+  "item": [
+    {
+      "id": "47685f8e-69e4-4f5d-9d64-6879b8de4d05",
+      "name": "Messages",
+      "description": {
+        "content": "Send SMS messages and read inbound messages received on your Guava numbers.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6f387ce9-ad0e-4440-b7a5-051dacfca86a",
+          "name": "Send an SMS",
+          "request": {
+            "name": "Send an SMS",
+            "description": {
+              "content": "Send a single SMS from one of your Guava numbers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "send-sms"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"from_number\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "12f7e0d6-934a-4326-8f07-a97cb09cab68",
+              "name": "Message accepted for delivery.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "send-sms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_number\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"sent\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d4fef3d6-f93a-482c-bb1b-0525b2ce9112",
+              "name": "The from_number isn't owned by your organization, or doesn't have SMS configured.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "send-sms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_number\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "af5b935b-af09-4160-aba4-fe20ce430e32",
+              "name": "Invalid authentication.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "send-sms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_number\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2b7286e3-f0f7-4246-8b71-48c437dd1b0e",
+              "name": "The upstream carrier failed to accept the message.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "send-sms"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"from_number\": \"<string>\",\n  \"to_number\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b7bebe78-b988-42fd-8dd6-2447b630e9f7",
+          "name": "List inbound messages",
+          "request": {
+            "name": "List inbound messages",
+            "description": {
+              "content": "List the inbound messages received on one of your Guava numbers, oldest first.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "to_number",
+                  "value": "<string>",
+                  "description": "(Required) The Guava number whose inbox you want to read (E.164). Must be owned by your organization."
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<dateTime>",
+                  "description": "Only return messages received at or after this time (ISO 8601, inclusive)."
+                },
+                {
+                  "disabled": false,
+                  "key": "from_number",
+                  "value": "<string>",
+                  "description": "Only return messages sent from this number (E.164)."
+                },
+                {
+                  "disabled": false,
+                  "key": "modality",
+                  "value": "<string>",
+                  "description": "Only return messages on this channel."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of messages to return."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4765e75a-89e4-4508-b689-e42b9a8d5500",
+              "name": "A page of inbound messages.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "to_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "from_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modality",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"messages\": [\n    {\n      \"id\": \"string\",\n      \"from_number\": \"string\",\n      \"to_number\": \"string\",\n      \"content\": \"string\",\n      \"received_at\": \"1954-12-10T23:07:51.054Z\",\n      \"modality\": \"sms\",\n      \"direction\": \"inbound\"\n    },\n    {\n      \"id\": \"string\",\n      \"from_number\": \"string\",\n      \"to_number\": \"string\",\n      \"content\": \"string\",\n      \"received_at\": \"1961-07-12T05:37:41.615Z\",\n      \"modality\": \"sms\",\n      \"direction\": \"inbound\"\n    }\n  ],\n  \"has_more\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "765bc346-c47f-4e7c-abac-574504eda461",
+              "name": "Invalid start timestamp or limit value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "to_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "from_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modality",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5b1a4398-8117-44a2-b626-e9d6138e32ce",
+              "name": "Invalid authentication.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "to_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "from_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modality",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0bd329aa-3694-428e-9b9e-bd5e75a2273b",
+              "name": "The to_number isn't owned by your organization.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "to_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<dateTime>"
+                    },
+                    {
+                      "key": "from_number",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "modality",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.goguava.ai/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ee606360-c50b-4d14-a7fd-4b44739e1b75",
+    "name": "Guava Voice Agent REST Conversations Messages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Guava (formerly Gridspace) REST API lets you manage calls, conversations, SMS messages, and account resources directly over HTTP — no SDK required. Guava is a voice AI platform for regulated industries (healthcare, banking, insurance, BPOs, government). This specification was reconstructed faithfully from Guava's published REST API reference at https://goguava.ai/docs/api-overview; every path, parameter, and response field is documented by the provider.\n\nContact Support:\n Name: Guava Support\n Email: hi@goguava.ai",
+      "type": "text/plain"
+    }
+  }
+}

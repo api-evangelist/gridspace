@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Guava Voice Agent REST Conversations Messages API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Messages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send an SMS",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.goguava.ai/v1/send-sms",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send a single SMS from one of your Guava numbers."
+        },
+        {
+          "info": {
+            "name": "List inbound messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.goguava.ai/v1/messages",
+            "params": [
+              {
+                "name": "to_number",
+                "value": "",
+                "type": "query",
+                "description": "The Guava number whose inbox you want to read (E.164). Must be owned by your organization."
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Only return messages received at or after this time (ISO 8601, inclusive)."
+              },
+              {
+                "name": "from_number",
+                "value": "",
+                "type": "query",
+                "description": "Only return messages sent from this number (E.164)."
+              },
+              {
+                "name": "modality",
+                "value": "",
+                "type": "query",
+                "description": "Only return messages on this channel."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of messages to return."
+              }
+            ]
+          },
+          "docs": "List the inbound messages received on one of your Guava numbers, oldest first."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

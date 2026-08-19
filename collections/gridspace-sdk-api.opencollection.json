@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Guava Voice Agent REST Conversations SDK API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "SDK",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Check SDK deprecation status",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.goguava.ai/v1/check-sdk-deprecation",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Check the deprecation status of a specific SDK version. REST-only — there is no SDK or CLI method for it."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
