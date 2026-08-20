@@ -67,6 +67,8 @@ apis:
   humanURL: https://goguava.ai/docs/api-overview
   baseURL: https://api.goguava.ai/v1
   tags:
+  - Message
+  tags_raw:
   - Messages
   properties:
   - type: OpenAPI
