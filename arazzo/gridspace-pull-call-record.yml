@@ -4,8 +4,8 @@ info:
   version: 1.0.0
   summary: List recent conversations, then fetch one call's details, transcript, and recording.
 sourceDescriptions:
-- name: guava
-  url: ../openapi/gridspace-guava-openapi.yml
+- name: conversationsApi
+  url: ../openapi/gridspace-conversations-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: pull-call-record

@@ -4,8 +4,8 @@ info:
   version: 1.0.0
   summary: Send an SMS from a Guava number, then poll the inbox for the recipient's reply.
 sourceDescriptions:
-- name: guava
-  url: ../openapi/gridspace-guava-openapi.yml
+- name: messagesApi
+  url: ../openapi/gridspace-messages-api-openapi.yml
   type: openapi
 workflows:
 - workflowId: send-and-poll-sms
