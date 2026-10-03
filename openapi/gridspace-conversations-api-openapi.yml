@@ -185,14 +185,6 @@ paths:
         '404':
           description: The call with this ID does not exist.
 components:
-  parameters:
-    CallId:
-      name: call_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: ID of the call.
   schemas:
     TranscriptTurn:
       type: object
@@ -243,6 +235,14 @@ components:
           type: string
           nullable: true
           description: How the call ended (e.g. "user-hangup"), if known.
+  parameters:
+    CallId:
+      name: call_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: ID of the call.
   securitySchemes:
     bearerAuth:
       type: http
