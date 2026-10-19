@@ -1,0 +1,365 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Guava API Server",
+    "version": "master"
+  },
+  "servers": [
+    {
+      "url": "https://app.goguava.ai"
+    }
+  ],
+  "paths": {
+    "/v1/conversations/{call_id}": {
+      "delete": {
+        "summary": "Delete conversation",
+        "description": "Deletes a conversation, including its transcript and recordings.",
+        "operationId": "api_delete_conversation_v1_conversations__call_id__delete",
+        "security": [
+          {
+            "APIKey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "call_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "ID of the call to delete.",
+              "title": "Call Id"
+            },
+            "description": "ID of the call to delete."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OkResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Conversation not found.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/check-deprecation": {
+      "post": {
+        "summary": "Check component deprecation",
+        "description": "Checks whether a given version of a Guava component is still supported.",
+        "operationId": "check_component_deprecation_v1_check_deprecation_post",
+        "parameters": [
+          {
+            "name": "component",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Component name.",
+              "examples": [
+                "python-sdk"
+              ],
+              "title": "Component"
+            },
+            "description": "Component name."
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "description": "Component version.",
+              "examples": [
+                "0.23.0"
+              ],
+              "title": "Version"
+            },
+            "description": "Component version."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DeprecationStatusResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/send-sms": {
+      "post": {
+        "tags": [
+          "SMS"
+        ],
+        "summary": "Send SMS",
+        "description": "Sends an SMS from one of your organization's phone numbers.",
+        "operationId": "send_sms_v1_send_sms_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SendSMSRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SendSMSResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The sender number isn't owned by your organization or isn't SMS-enabled.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Missing or invalid credentials.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Your account has an unresolved billing issue."
+          },
+          "500": {
+            "description": "The carrier failed to send the message."
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "APIKey": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DeprecationStatusResponse": {
+        "properties": {
+          "deprecation_status": {
+            "type": "string",
+            "enum": [
+              "supported",
+              "deprecated",
+              "unknown"
+            ],
+            "title": "Deprecation Status",
+            "description": "`unknown` if the component isn't recognized."
+          }
+        },
+        "type": "object",
+        "required": [
+          "deprecation_status"
+        ],
+        "title": "DeprecationStatusResponse"
+      },
+      "ErrorResponse": {
+        "properties": {
+          "detail": {
+            "type": "string",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "required": [
+          "detail"
+        ],
+        "title": "ErrorResponse"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "OkResponse": {
+        "properties": {
+          "ok": {
+            "type": "boolean",
+            "const": true,
+            "title": "Ok",
+            "default": true
+          }
+        },
+        "type": "object",
+        "title": "OkResponse"
+      },
+      "SendSMSRequest": {
+        "properties": {
+          "from_number": {
+            "type": "string",
+            "pattern": "^\\+[1-9]\\d{1,14}$",
+            "title": "From Number",
+            "description": "Sender, in E.164 format. Must be an SMS-enabled number owned by your organization.",
+            "examples": [
+              "+14155550100"
+            ]
+          },
+          "to_number": {
+            "type": "string",
+            "pattern": "^\\+[1-9]\\d{1,14}$",
+            "title": "To Number",
+            "description": "Recipient, in E.164 format.",
+            "examples": [
+              "+14155550123"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "description": "Message body.",
+            "examples": [
+              "Your appointment is confirmed for 3pm tomorrow."
+            ]
+          }
+        },
+        "type": "object",
+        "required": [
+          "from_number",
+          "to_number",
+          "message"
+        ],
+        "title": "SendSMSRequest"
+      },
+      "SendSMSResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "Delivery status reported by the carrier, e.g. `queued` or `sent`."
+          }
+        },
+        "type": "object",
+        "required": [
+          "status"
+        ],
+        "title": "SendSMSResponse"
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    },
+    "securitySchemes": {
+      "APIKey": {
+        "type": "http",
+        "description": "A Guava API key, sent as `Authorization: Bearer <key>`.",
+        "scheme": "bearer"
+      }
+    }
+  }
+}

@@ -1,0 +1,137 @@
+openapi: 3.2.0
+info:
+  title: Guava API Server SMS API
+  version: master
+servers:
+- url: https://app.goguava.ai
+tags:
+- name: SMS
+paths:
+  /v1/send-sms:
+    post:
+      tags:
+      - SMS
+      summary: Send SMS
+      description: Sends an SMS from one of your organization's phone numbers.
+      operationId: send_sms_v1_send_sms_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendSMSRequest'
+        required: true
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SendSMSResponse'
+        '400':
+          description: The sender number isn't owned by your organization or isn't SMS-enabled.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Missing or invalid credentials.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '403':
+          description: Your account has an unresolved billing issue.
+        '500':
+          description: The carrier failed to send the message.
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      security:
+      - APIKey: []
+components:
+  schemas:
+    SendSMSRequest:
+      properties:
+        from_number:
+          type: string
+          pattern: ^\+[1-9]\d{1,14}$
+          title: From Number
+          description: Sender, in E.164 format. Must be an SMS-enabled number owned by your organization.
+          examples:
+          - '+14155550100'
+        to_number:
+          type: string
+          pattern: ^\+[1-9]\d{1,14}$
+          title: To Number
+          description: Recipient, in E.164 format.
+          examples:
+          - '+14155550123'
+        message:
+          type: string
+          title: Message
+          description: Message body.
+          examples:
+          - Your appointment is confirmed for 3pm tomorrow.
+      type: object
+      required:
+      - from_number
+      - to_number
+      - message
+      title: SendSMSRequest
+    SendSMSResponse:
+      properties:
+        status:
+          type: string
+          title: Status
+          description: Delivery status reported by the carrier, e.g. `queued` or `sent`.
+      type: object
+      required:
+      - status
+      title: SendSMSResponse
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+    ErrorResponse:
+      properties:
+        detail:
+          type: string
+          title: Detail
+      type: object
+      required:
+      - detail
+      title: ErrorResponse
+  securitySchemes:
+    APIKey:
+      type: http
+      description: 'A Guava API key, sent as `Authorization: Bearer <key>`.'
+      scheme: bearer

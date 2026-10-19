@@ -73,32 +73,30 @@ apis:
     url: https://goguava.ai/docs/api-overview
   - type: Authentication
     url: authentication/gridspace-authentication.yml
-- aid: gridspace:gridspace-messages-api
-  name: Gridspace Messages API
-  description: Send SMS messages and read inbound messages received on your Guava numbers.
+- aid: gridspace:gridspace-check-deprecation-api
+  name: Gridspace Check Deprecation API
+  description: The Check Deprecation API from Gridspace — 1 operation(s) for check deprecation.
   humanURL: https://goguava.ai/docs/api-overview
   baseURL: https://api.goguava.ai/v1
   tags:
-  - Message
-  tags_raw:
-  - Messages
+  - Check Deprecation
   properties:
   - type: OpenAPI
-    url: openapi/gridspace-messages-api-openapi.yml
+    url: openapi/gridspace-check-deprecation-api-openapi.yml
   - type: Documentation
     url: https://goguava.ai/docs/api-overview
   - type: Authentication
     url: authentication/gridspace-authentication.yml
-- aid: gridspace:gridspace-sdk-api
-  name: Gridspace SDK API
-  description: SDK lifecycle utilities.
+- aid: gridspace:gridspace-sms-api
+  name: Gridspace SMS API
+  description: The SMS API from Gridspace — 1 operation(s) for sms.
   humanURL: https://goguava.ai/docs/api-overview
   baseURL: https://api.goguava.ai/v1
   tags:
-  - SDK
+  - SMS
   properties:
   - type: OpenAPI
-    url: openapi/gridspace-sdk-api-openapi.yml
+    url: openapi/gridspace-sms-api-openapi.yml
   - type: Documentation
     url: https://goguava.ai/docs/api-overview
   - type: Authentication

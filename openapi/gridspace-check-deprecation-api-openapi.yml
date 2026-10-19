@@ -1,0 +1,101 @@
+openapi: 3.2.0
+info:
+  title: Guava API Server Check Deprecation API
+  version: master
+servers:
+- url: https://app.goguava.ai
+tags:
+- name: Check Deprecation
+paths:
+  /v1/check-deprecation:
+    post:
+      summary: Check component deprecation
+      description: Checks whether a given version of a Guava component is still supported.
+      operationId: check_component_deprecation_v1_check_deprecation_post
+      parameters:
+      - name: component
+        in: query
+        required: true
+        schema:
+          type: string
+          description: Component name.
+          examples:
+          - python-sdk
+          title: Component
+        description: Component name.
+      - name: version
+        in: query
+        required: true
+        schema:
+          type: string
+          description: Component version.
+          examples:
+          - 0.23.0
+          title: Version
+        description: Component version.
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DeprecationStatusResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+      tags:
+      - Check Deprecation
+components:
+  schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    DeprecationStatusResponse:
+      properties:
+        deprecation_status:
+          type: string
+          enum:
+          - supported
+          - deprecated
+          - unknown
+          title: Deprecation Status
+          description: '`unknown` if the component isn''t recognized.'
+      type: object
+      required:
+      - deprecation_status
+      title: DeprecationStatusResponse
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError
+  securitySchemes:
+    APIKey:
+      type: http
+      description: 'A Guava API key, sent as `Authorization: Bearer <key>`.'
+      scheme: bearer

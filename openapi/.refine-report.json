@@ -1,24 +1,25 @@
 {
   "provider": "gridspace",
   "sources": [
-    "_original/gridspace-guava-openapi.yml"
+    "_original/gridspace-openapi.json"
   ],
   "outputs": [
+    "gridspace-check-deprecation-api-openapi.yml",
     "gridspace-conversations-api-openapi.yml",
-    "gridspace-messages-api-openapi.yml",
-    "gridspace-sdk-api-openapi.yml"
+    "gridspace-sms-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "gridspace-guava-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "gridspace-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "gridspace-openapi.json: tagged paths DELETE /v1/conversations/{call_id} -> Conversations",
+    "gridspace-openapi.json: tagged paths POST /v1/check-deprecation -> Check Deprecation",
+    "gridspace-openapi.json: declared missing tag: Check Deprecation",
+    "gridspace-openapi.json: declared missing tag: Conversations",
+    "gridspace-openapi.json: declared missing tag: SMS",
+    "apis.yml register: written (+2 apis, 3 total)"
   ],
-  "skipped": [
-    "gridspace-conversations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "gridspace-messages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "gridspace-sdk-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "skipped": []
 }
