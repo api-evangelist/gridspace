@@ -64,6 +64,141 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Gridspace is a company surfaced as a portfolio company of bloomberg-beta and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Gridspace is a voice AI company (founded 2013) that now operates as Guava (goguava.ai) — a voice agent platform built for regulated industries such as healthcare, banking, insurance, BPOs, and government. Guava provides an end-to-end conversational voice stack (ASR, LLM, TTS, plus compliance guardrails) exposed through Python, TypeScript, and Elixir SDKs, a "guava" CLI, a managed cloud deployment platform, and a REST API for managing conversations, transcripts, recordings, and SMS. It supports inbound and outbound calling over WebRTC and SIP, with SOC 2 Type II, HITRUST i1, and PCI DSS posture and built-in TCPA / A2P 10DLC / SHAKEN-STIR telephony compliance workflows. The legacy gridspace.com domain now redirects to goguava.ai.
 
-Backed by: bloomberg-beta — https://www.gridspace.com
+**Areas:** Company · Voice AI · Conversational AI · Voice Agents · Speech Recognition · Telephony · SMS · Contact Center · Regulated Industries · Healthcare
+
+## Gridspace on APIs.io
+
+Everything profiled for Gridspace is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/gridspace/](https://apis.io/providers/gridspace/)** — or go straight to one of the APIs or properties below.
+
+### APIs (3)
+
+- [Gridspace Conversations API](https://apis.io/apis/gridspace/gridspace-conversations-api/) — Retrieve, inspect, and delete conversation data for completed calls.
+- [Gridspace Messages API](https://apis.io/apis/gridspace/gridspace-messages-api/) — Send SMS messages and read inbound messages received on your Guava numbers.
+- [Gridspace SDK API](https://apis.io/apis/gridspace/gridspace-sdk-api/) — SDK lifecycle utilities.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Arazzo workflows (2)
+
+Multi-step workflows that chain operations into a business task.
+
+- [Pull a call's full record](https://apis.io/arazzos/gridspace/gridspace-pull-call-record/)
+- [Send an SMS and poll for the reply](https://apis.io/arazzos/gridspace/gridspace-send-and-poll-sms/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [guava](https://apis.io/servers/gridspace/guava/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Gridspace Agentic Access](https://apis.io/agentic-access/gridspace/gridspace-agentic-access/)
+
+#### Collections (6)
+
+Postman and Open Collection request collections.
+
+- [Guava Voice Agent REST Conversations API](https://apis.io/collections/gridspace/open-gridspace-conversations-api/)
+- [Guava Voice Agent REST Conversations Messages API](https://apis.io/collections/gridspace/open-gridspace-messages-api/)
+- [Guava Voice Agent REST Conversations SDK API](https://apis.io/collections/gridspace/open-gridspace-sdk-api/)
+- [Guava Voice Agent REST Conversations API](https://apis.io/collections/gridspace/postman-gridspace-conversations-api/)
+- [Guava Voice Agent REST Conversations Messages API](https://apis.io/collections/gridspace/postman-gridspace-messages-api/)
+- [Guava Voice Agent REST Conversations SDK API](https://apis.io/collections/gridspace/postman-gridspace-sdk-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Gridspace Guava Overlay](https://apis.io/overlays/gridspace/gridspace-guava-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Gridspace Authentication](https://apis.io/security/gridspace/gridspace-authentication/)
+- [Gridspace Domain Security](https://apis.io/security/gridspace/gridspace-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Gridspace Plans](https://apis.io/plans/gridspace/gridspace-plans/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://goguava.ai)
+- [Documentation](https://goguava.ai/docs)
+- [Getting started](https://goguava.ai/docs/quickstart)
+- [API reference](https://goguava.ai/docs/api-overview)
+- [Pricing](https://goguava.ai/pricing)
+- [Sign up](https://app.goguava.ai)
+- [Changelog](https://goguava.ai/docs/release-notes)
+- [Blog](https://goguava.ai/blog)
+- [Terms of service](https://goguava.ai/terms)
+- [Privacy policy](https://goguava.ai/privacy)
+- [GitHub](https://github.com/goguava-ai)
+- [Status](https://status.goguava.ai)
+
+## API Evangelist rating
+
+**Kin Score 58.9** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 47.2 |
+| Contract governance | 18.2 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 81.5 |
+| Access clarity | 84.2 |
+
+**Agent readiness 23.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 25.0** — Telecommunications
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/gridspace/](https://apis.io/providers/gridspace/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Gridspace: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/gridspace/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
